@@ -3,7 +3,7 @@
   --secondary-font: 'Raleway', sans-serif;
   --iris: #4d5ae5;
   --ocean: #404bbf;
-  --primary-text-color: #434455;
+  --slate: #434455;
   --primary-dark-color: #2e2f42;
   --cornflower: #e7e9fc;
   --white: #ffffff;
@@ -20,7 +20,7 @@ body {
   letter-spacing: 0.02em;
   text-decoration: none;
   background-color: var(--white);
-  color: var(--primary-text-color);
+  color: var(--slate);
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -136,8 +136,18 @@ a {
   gap: 24px;
 }
 
-.socials-item {
+
+
+.socials-link:hover, 
+.socials-link:focus, 
+.socials-link:active {
+  background-color: var(--green);
+}
+
+.socials-link {
   display: flex;
+  justify-content: center;
+  align-items: center;
   width: 40px;
   height: 40px;
   background-color: var(--iris);
@@ -147,12 +157,7 @@ a {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.socials-item:hover, .socials-item:focus, .socials-item:active {
-  background-color: var(--green);
-}
-
 .socials-icon {
-  margin: auto;
   width: 16px;
   height: 16px;
   fill: var(--cloud);
@@ -201,16 +206,10 @@ a {
   width: calc((100% - 3 * 24px) / 4);
 }
 
-.team-cards .item:hover .socials-item,
-.team-cards .item:active .socials-item,
-.team-cards .item:focus .socials-item {
+.team-cards .item .socials-link:hover,
+.team-cards .item .socials-link:active,
+.team-cards .item .socials-link:focus {
   background-color: var(--ocean);
-}
-
-.team-cards .item .socials-item:hover,
-.team-cards .item .socials-item:active,
-.team-cards .item .socials-item:focus {
-  background-color: var(--green);
 }
 
 .team-plate {
@@ -227,8 +226,10 @@ a {
   gap: 24px;
 }
 
-.customers-cards .item {
+.customers-cards .customer-link {
   display: flex;
+  justify-content: center;
+  align-items: center;
   width: 168px;
   height: 88px;
   border-radius: 4px;
@@ -239,26 +240,24 @@ a {
 }
 
 .customer-icon {
-  margin: auto;
   width: 104px;
   height: 56px;
   fill: var(--light-slate);
-  box-sizing: border-box;
   transition-property: fill;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.customers-cards .item:hover,
-.customers-cards .item:focus,
-.customers-cards .item:active {
+.customers-cards .customer-link:hover,
+.customers-cards .customer-link:focus,
+.customers-cards .customer-link:active {
   fill: var(--ocean);
   border-color: var(--ocean);
 }
 
-.customers-cards .item:hover .customer-icon,
-.customers-cards .item:focus .customer-icon,
-.customers-cards .item:active .customer-icon {
+.customers-cards .customer-link:hover .customer-icon,
+.customers-cards .customer-link:focus .customer-icon,
+.customers-cards .customer-link:active .customer-icon {
   fill: var(--ocean);
 }
 
@@ -279,16 +278,17 @@ a {
   column-gap: 24px;
 }
 
-.portfolio-cards .item {
+.portfolio-card-link {
   width: calc((100% - 2 * 24px) / 3);
+  color: var(--slate);
   transition-property: background-color, box-shadow;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.portfolio-cards .item:hover,
-.portfolio-cards .item:focus,
-.portfolio-cards .item:active {
+.portfolio-card-link:hover,
+.portfolio-card-link:focus,
+.portfolio-card-link:active {
   box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
   background-color: var(--white);
 }
@@ -342,7 +342,7 @@ a {
 
 .footer-socials .socials-icon {
   width: 24px; 
-  height: 24px; 
+  height: 24px;
 }
 
 .socials-header {
@@ -491,12 +491,18 @@ background-size: 1440px auto;
   left: 0;
   width: 100%;
   height: 100%;
+  transition-property: opacity, visibility;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .is-hidden {
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
+  transition-property: opacity, visibility;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal {
@@ -527,7 +533,18 @@ background-size: 1440px auto;
   background-color: var(--cornflower);
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   cursor: pointer;
+  transition-property: background-color, fill, border;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.modal-close-button:hover,
+.modal-close-button:focus {
+  background-color: var(--ocean);
+  fill: var(--white);
+  border: none;
+}
+
 
 .icon-close {
   position: absolute;
